@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup</title>
+  <style>
+    body {
+      background-image: url('bg.jpg');
+      background-size: 100%;
+    }
+
+    form {
+      background-color: #ffe4e1;
+      border: 3px solid black;
+      border-radius: 20px;
+      text-align: center;
+      font-size: large;
+      height: fit-content;
+      width: 30%;
+      margin-top: 5%;
+      margin-left: 50%;
+      margin-right: 50%;
+      padding: 30px;
+    }
+
+    input {
+      padding: 15px;
+    }
+
+    button {
+      font-size: medium;
+      background-color: beige;
+      border: 3px solid gray;
+      border-radius: 10px;
+      color: black;
+      width: 100px;
+      padding: 10px;
+    }
+    button.ems{
+        font-size: medium;
+      background-color: beige;
+      border: 3px solid gray;
+      border-radius: 10px;
+      color: black;
+      width: 60%;
+      padding: 10px;
+    }
+
+    h2 {
+      font-family: 'Times New Roman', Times, serif;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <form id="signupForm">
+      <h2>Sign Up</h2>
+      <input type="text" size="40" placeholder="Full Name" id="name" name="name"><br><br>
+      <input type="text" size="40" placeholder="Email" id="email" name="email"><br><br>
+      <input type="password" size="40" placeholder="Password" id="password" name="password"><br><br>
+      <button type="submit">Create</button>
+      <button><a href="index.html">Cancel</a></button><br><br>
+      <button class="ems"><a href="login.html">already have an account?</a></button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      var userData = {
+        name: name,
+        email: email,
+        password: password
+      };
+
+      // Check if userData is already stored in localStorage
+      if (localStorage.getItem('userData')) {
+        alert('User already exists! Please log in.');
+        return;
+      }
+
+      // Save the data to localStorage
+      localStorage.setItem('userData', JSON.stringify(userData));
+
+      alert('Account created successfully!');
+      window.location.href = 'login.html'; // Redirect to login page
+    });
+  </script>
+</body>
+</html>

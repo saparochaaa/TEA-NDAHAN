@@ -1,0 +1,78 @@
+<html>
+    <title>log in</title>
+<head>
+<style>
+ body{
+  background-image: url('bg.jpg') ;
+  background-size: 100%;
+  }
+form{
+  border: 3px solid gray;
+  background-color: #ffe4e1;
+  text-align: center;
+  border-radius: 20px;
+  font-size: xx-large;
+    height:fit-content;
+    width:23%;
+    margin-top:8%;
+    margin-left: 55%;
+    padding: 50px;
+}
+h2{
+  font-family: 'Times New Roman', Times, serif;
+}
+input.button{
+  padding: 5px;
+  background-color: bisque;
+  opacity: 30px;
+}
+p{
+  font-size:15px;
+  font-family: serif;
+}
+input.ems{
+background-color: beige;
+border:3px solid gray;
+border-radius:10px;
+color:black;
+padding:10px;
+}
+button{
+background-color: beige;
+border:3px solid gray;
+border-radius:10px;
+color:black;
+padding:10px;
+margin: 3px;
+}
+
+</style>
+<script>
+function sayLog(){
+var username = document.getElementById('1').value;
+var password = document.getElementById('2').value;
+
+if(username === 'admin' && password === '123'){
+alert
+location.href='file2.html';
+}
+else{
+alert('Access Denied');
+}}
+function clearResult(){
+    document.getElementById("result").value = " "
+}
+
+</script>
+</head>
+<body>
+<form>
+  <h2>Log In</h2>
+<input id="1"  type="text" size="30" placeholder="Enter your Username" ><br><br>
+<input id="2"  type="password" size="30" placeholder="Enter your Password" ><br><br>
+<input class="ems" type="button" onclick="sayLog()" value="Log in">
+<button><a href="signup.html"> Create New Account</a></button>
+<p><a href="#"> Forget Password</a></p>
+</div></form>
+</body>
+</html>

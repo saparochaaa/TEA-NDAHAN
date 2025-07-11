@@ -1,0 +1,173 @@
+<html>
+<title> TEA-NDAHAN</title>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+background-image: url('bg.jpeg');
+}
+.container {
+max-width: 100%;
+margin: 0 auto;
+}
+
+header {
+width: 100%;
+display: flex;
+justify-content: space-around;
+align-items: center;
+margin-bottom: 3px;
+}
+nav ul {
+list-style-type: none;
+display: flex;
+}
+
+nav ul li a {
+text-decoration:none;
+color:black;
+padding: 5px;
+position: relative;
+}
+nav ul li a.active {
+font-weight: bold;
+}
+.dashboard-widget {
+width:100%;
+height: 90%;
+padding: 30px;
+border-radius: 15px;
+}
+h1{
+color: darkslategrey;
+font-family: 'Courier New', Courier, monospace;
+}
+div.slides {
+display:none;
+animation-name: fade;
+animation-duration: 1.0s;
+}
+img {
+vertical-align: middle;
+}
+div.slideshow {
+max-width: 90%;
+position: relative;
+margin: auto;
+}
+span.blt {
+cursor: pointer;
+height: 15px;
+width: 15px;
+margin: 2px;
+background-color:beige;
+border-radius: 40%;
+display: inline-block;
+transition: background-color 0.5s ease;
+}
+span.blt:hover {
+background-color:beige;
+}
+span.blt:active{
+background-color: black;
+}
+
+footer {
+background-color: black;
+color:white;
+text-align: center;
+margin-bottom: 3px;
+}
+</style>
+<script>
+let slideIndex = 0;
+let slideTimeout;
+
+document.addEventListener("DOMContentLoaded", function () {
+showSlides();
+});
+
+function plusSlides(n) {
+clearTimeout(slideTimeout);
+showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+clearTimeout(slideTimeout);
+slideIndex = n;
+showSlides();
+}
+
+function showSlides() {
+let i;
+let slides = document.getElementsByClassName("slides");
+let dots = document.getElementsByClassName("blt");
+
+if (slideIndex > slides.length) {
+slideIndex = 1;
+} else if (slideIndex < 1) {
+slideIndex = slides.length;
+}
+
+for (i = 0; i < slides.length; i++) {
+slides[i].style.display = "none";
+}
+
+for (i = 0; i < dots.length; i++) {
+dots[i].className = dots[i].className.replace(" active", "");
+}
+
+slides[slideIndex - 1].style.display = "block";
+dots[slideIndex - 1].className += " active";
+
+slideTimeout = setTimeout(function () {
+plusSlides(1);
+}, 2000); 
+}
+</script>
+</head>
+<body>
+<div class="container">
+<header><a href="file.html"><IMG SRC="logo.png" HEIGHT="120" WEIGHT="50"></a>
+<h1><b>TEA-NDAHAN </b></h1>
+<nav>
+<ul>
+<li><a href="cart.html">Products</a></li>&nbsp;&nbsp;&nbsp;
+<li><button><a href="login.html">Log in</a></button></li>
+<li><button><a href="signup1.html">Sign Up</a></button></li>
+</ul>
+</nav>
+</header>
+<div class="dashboard-widget">
+<div class="slideshow">
+<div class="slides">
+<a href="#"><img src="1.jpeg" style="width:100%"></a>
+</div>
+<div class="slides">
+<a href="#"><img src="2.jpeg" style="width:100%"></a>
+</div>
+<div class="slides">
+<a href="#"><img src="3.jpeg" style="width:100%"></a>
+</div>
+<div class="slides">
+<a href="#"><img src="4.jpeg" style="width:100%"></a>
+</div>
+</div>
+<br>
+
+<div style="text-align:center">
+<span class="blt" onclick="currentSlide(1)"></span> 
+<span class="blt" onclick="currentSlide(2)"></span> 
+<span class="blt" onclick="currentSlide(3)"></span> 
+<span class="blt" onclick="currentSlide(4)"></span> 
+</div>
+
+</div>
+<center> <img src="menu.jpeg"></center>
+</header>
+<footer>
+<p>&copy; 2023 Your Website. All rights reserved.</p>
+</footer>
+</body>
+</html>
